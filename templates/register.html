@@ -1,0 +1,95 @@
+<!-- Store this code in 'register.html' file inside the 'templates' folder -->
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> Match Resume </title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	</head>
+	<body topmargin="0">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6"><b>Match Resume</b></div>
+				<div class="col-md-6" align="right" ><b> Welcome: {{session['username']}}</b></div>
+			</div>
+			<br>
+			<form action="{{ url_for('register') }}" method="post">
+				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-1">
+								Resume
+							</div>
+							<div class="col-md-5">
+								<textarea name="txt_Resume" rows="10" cols="100" class="form-control">{{myResume}}</textarea>
+							</div>
+							<div class="col-md-1">Job Description</div>
+							<div class="col-md-5">
+								<textarea name="txt_Job" rows="10" cols="100" class="form-control">{{myJob}}</textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-1">Recruiter</div>
+							<div class="col-md-5">
+									<select name="Recruiter" id="Recruiter" class="form-control">
+
+										<OPTION value='0'>Select Assistant</OPTION>
+										{% for j in joblist	 %}
+	
+											{% if j[1] ==  SelectAssid  %}
+												<OPTION value={{j[1]}} selected = "true">{{j[2]}}</OPTION>
+											{% else %}
+												<OPTION value={{j[1]}} >{{j[2]}}</OPTION>
+											{% endif %}
+										{% endfor %}
+									</select>
+							</div>
+							<div class="col-md-1">Instructions</div>
+							<div class="col-md-5">
+									<select name="Instruction" id="Instruction" class="form-control">
+										{% if SelectInsid == "1"  %}
+											<OPTION value=1 selected>Concise Response</OPTION>
+											<OPTION value=2 >Detailed Response</OPTION>
+										{% else %}
+											<OPTION value=1 >Concise Response</OPTION>
+											<OPTION value=2 selected>Detailed Response</OPTION>
+										{% endif %}
+									</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-md-12" align="center" >
+							<input type="submit" class="btn"  value="Submit" >&nbsp; &nbsp; 
+							<a href="{{ url_for('GetQuest')}}" class="btn right">Get Questions</a> &nbsp; 
+							<a href="{{ url_for('logout') }}" class="btn right">Logout</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 " >
+						<hr>
+					</div>
+				</div>
+				<div class="row">
+						<div class="col-md-12"  >
+							{{ msg }}
+					</div>
+				</div>
+			
+				
+				
+			</form>
+			
+		</div>
+	</body>
+</html>

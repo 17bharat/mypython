@@ -1,0 +1,5 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/ec22eaca-00dd-4891-82f0-cd19cd9d238a/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/bitsoftai",
+    "appService.deploySubpath": ".",
+    "git.ignoreLimitWarning": true
+}

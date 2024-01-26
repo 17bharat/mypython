@@ -1,0 +1,43 @@
+<!-- Store this code in 'register.html' file inside the 'templates' folder -->
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> Match Resume </title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	</head>
+	<body></br>
+		
+		<div align="left" class="border">
+			<form action="{{ url_for('register') }}" method="post">
+					<div class="rows">
+						<div class="col-md-12">
+							<div class="col-md-4">Resume</div>
+							<div class="col-md-8"> <textarea name="txt_Resume" rows="10" cols="100" ></textarea></div>
+						</div>
+					</div>
+					<div class="rows">
+						<div class="col-md-12">
+							<div class="col-md-4">Job Description</div>
+							<div class="col-md-8"> <textarea name="txt_Job" rows="10" cols="100" ></textarea></div>
+						</div>
+					</div>
+					<div class="rows">
+						<div class="col-md-12" align="center">
+							<input type="submit" class="btn btn-red btn-sm" value="Submit"></br><br>
+						</div>
+					</div>
+					<div class="rows">
+						<div class="col-md-12 success">
+                    		<div class="success"> {{ msg }} </div>
+						</div>
+					</div>
+				</form>
+		</div>
+
+	</body>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>
