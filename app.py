@@ -1,5 +1,5 @@
 # Store this code in 'app.py' file
-
+#!/usr/bin/env python
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_bootstrap import Bootstrap
 from flask_mysqldb import MySQL
