@@ -31,7 +31,7 @@ app.config['MYSQL_USER'] = 'bharat'
 app.config['MYSQL_PASSWORD'] = 'Orange*630'
 app.config['MYSQL_DB'] = 'closemonitormysql'
 app.config['ssl']=ctx
-
+	
 mysql = MySQL(app)
 SelectAssid=''
 SelectInsid=0
