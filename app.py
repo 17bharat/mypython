@@ -2,7 +2,7 @@
 #!/usr/bin/env python
 
 from flask import Flask, render_template, request, redirect, url_for, session
-from flask_bootstrap import Bootstrap
+
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
