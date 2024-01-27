@@ -15,6 +15,9 @@ openai.api_key = "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"
 	
 
 #assistant_id = _Recruiter
+def health():
+    return 'OK'
+
 
 app = Flask(__name__)
 app.run(host="0.0.0.0", port=8000)
