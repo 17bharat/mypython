@@ -10,14 +10,14 @@ import time, datetime
 import openai
 openai.api_key = "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"
 #assistant_id = "asst_gZxSXO54CATUchcFfSCB2ODk"
-#if request.method == 'POST' :
+#if request.method == 'POST' :python 
 #	assistant_id = request.form['Recruiter']
 	
 
 #assistant_id = _Recruiter
 
 app = Flask(__name__)
-
+app.run(host="0.0.0.0", port=8000)
 
 app.secret_key = 'your secret key'
 ctx = ssl.create_default_context()
@@ -37,6 +37,7 @@ SelectAssid=''
 SelectInsid=0
 
 @app.route('/')
+
 @app.route('/login', methods =['GET', 'POST'])
 def login():
 	msg = ''
