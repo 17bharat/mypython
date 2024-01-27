@@ -2,7 +2,6 @@
 #!/usr/bin/env python
 
 from flask import Flask, render_template, request, redirect, url_for, session
-from flask_bootstrap import Bootstrap
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
@@ -23,7 +22,7 @@ def health():
 
 
 app = Flask(__name__)
-app.run(host="https://skillai.azurewebsites.net", port=8000)
+
 
 app.secret_key = 'your secret key'
 ctx = ssl.create_default_context()
