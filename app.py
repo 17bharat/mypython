@@ -1,5 +1,6 @@
 # Store this code in 'app.py' file
 #!/usr/bin/env python
+
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_bootstrap import Bootstrap
 from flask_mysqldb import MySQL
@@ -13,6 +14,8 @@ openai.api_key = "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"
 #if request.method == 'POST' :python 
 #	assistant_id = request.form['Recruiter']
 	
+# Configure logging to stdout
+
 
 #assistant_id = _Recruiter
 def health():
@@ -20,7 +23,7 @@ def health():
 
 
 app = Flask(__name__)
-app.run(host="0.0.0.0", port=8000)
+app.run(host="https://skillai.azurewebsites.net", port=8000)
 
 app.secret_key = 'your secret key'
 ctx = ssl.create_default_context()
