@@ -1,2 +1,4 @@
 flask>=2.0.0
 requests>2.22.0
+Flask-Bootstrap==3.3.7.1
+# The following Bootstrap version is for Bootstrap 5
