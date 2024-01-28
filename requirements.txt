@@ -4,3 +4,4 @@ Flask-Bootstrap==3.3.7.1
 Flask-MySQLdb==2.0.0
 openai==1.7.0
 # The following Bootstrap version is for Bootstrap 5
+
