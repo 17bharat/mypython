@@ -3,8 +3,8 @@
 
 from flask import Flask, render_template, request, redirect, url_for, session
 
-from flask_mysqldb import MySQL
-import MySQLdb.cursors
+#from flask_mysqldb import MySQL
+#import MySQLdb.cursors
 import re
 import ssl
 import time, datetime
@@ -32,13 +32,13 @@ ctx = ssl.create_default_context()
 ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
-app.config['MYSQL_HOST'] = 'mysql-closemonitor.mysql.database.azure.com'
-app.config['MYSQL_USER'] = 'bharat'
-app.config['MYSQL_PASSWORD'] = 'Orange*630'
-app.config['MYSQL_DB'] = 'closemonitormysql'
-app.config['ssl']=ctx
+#app.config['MYSQL_HOST'] = 'mysql-closemonitor.mysql.database.azure.com'
+#app.config['MYSQL_USER'] = 'bharat'
+#app.config['MYSQL_PASSWORD'] = 'Orange*630'
+#app.config['MYSQL_DB'] = 'closemonitormysql'
+#app.config['ssl']=ctx
 	
-mysql = MySQL(app)
+#mysql = MySQL(app)
 SelectAssid=''
 SelectInsid=0
 
@@ -50,16 +50,16 @@ def login():
 	if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
 		username = request.form['username']
 		password = request.form['password']
-		cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-		cursor.execute('SELECT * FROM assistant_users WHERE Email = % s AND Password = % s', (username, password, ))
-		account = cursor.fetchone()
-		if account:
-			session['loggedin'] = True
-			session['id'] = account['UserId']
-			session['username'] = account['UserName']
-			mycursor = mysql.connection.cursor()
-			mycursor.execute('SELECT AssistantID, AssistantKey, AssistantRecruiter FROM recruiter_assistant') 
-			joblist = mycursor.fetchall() 
+		#cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+		#cursor.execute('SELECT * FROM assistant_users WHERE Email = % s AND Password = % s', (username, password, ))
+		#account = cursor.fetchone()
+		#if account:
+		#	session['loggedin'] = True
+		#	session['id'] = account['UserId']
+		#	session['username'] = account['UserName']
+		#	mycursor = mysql.connection.cursor()
+		#	mycursor.execute('SELECT AssistantID, AssistantKey, AssistantRecruiter FROM recruiter_assistant') 
+		#	joblist = mycursor.fetchall() 
 
 
 			return render_template('register.html', joblist = joblist, SelectAssid=SelectAssid, SelectInsid='1')
@@ -144,12 +144,12 @@ def register():
 		response=openai.beta.threads.messages.list(
 			thread_id=my_thread_id
         )
-		mycursor = mysql.connection.cursor()
-		mycursor.execute('SELECT AssistantID, AssistantKey, AssistantRecruiter FROM recruiter_assistant') 
-		joblist = mycursor.fetchall()
+		# mycursor = mysql.connection.cursor()
+		# mycursor.execute('SELECT AssistantID, AssistantKey, AssistantRecruiter FROM recruiter_assistant') 
+		# joblist = mycursor.fetchall()
 		now = datetime.datetime.now()
-		mycursor.execute('INSERT INTO Assistant_History VALUES (null, % s, % s,% s,% s,% s,% s,% s)', (session['id'],now,txt_Resume,txt_Job,SelectAssid,SelectInsid, response.data[0].content[0].text.value))
-		mysql.connection.commit()	
+		# mycursor.execute('INSERT INTO Assistant_History VALUES (null, % s, % s,% s,% s,% s,% s,% s)', (session['id'],now,txt_Resume,txt_Job,SelectAssid,SelectInsid, response.data[0].content[0].text.value))
+		# mysql.connection.commit()	
 
 		msg = 'Summary :- \n'+ response.data[0].content[0].text.value
 	elif request.method == 'POST':
